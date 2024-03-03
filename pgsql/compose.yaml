@@ -2,7 +2,10 @@ version: '3.8'
 
 services:
   postgres:
-    image: postgres:latest
+    # image: postgres:latest
+    
+    # for the case when vector
+    image: ankane/pgvector:latest
     container_name: postgres-ai
     restart: always
     environment:
