@@ -5,9 +5,9 @@ from crewai import Agent, Task, Crew, Process
 
 import os
 
-os.environ["OPENAI_API_BASE"]='http://192.168.0.90:11434/v1'
-os.environ["OPENAI_MODEL_NAME"]='mistral'
-os.environ["OPENAI_API_KEY"]=''
+# os.environ["OPENAI_API_BASE"]='http://192.168.0.90:11434/v1'
+# os.environ["OPENAI_MODEL_NAME"]='mistral'
+# os.environ["OPENAI_API_KEY"]=''
 
 from langchain_community.tools import DuckDuckGoSearchRun
 search_tool = DuckDuckGoSearchRun()
@@ -50,7 +50,8 @@ crew = Crew (
   agents=[researcher, writer],
   tasks=[task1, task2],
   verbose=2,
-  process=Process.sequential
+  process=Process.sequential,
+  share_crew=False
 )
 
 result = crew.kickoff()
